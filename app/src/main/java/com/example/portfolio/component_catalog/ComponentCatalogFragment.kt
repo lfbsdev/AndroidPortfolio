@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.portfolio.about.AboutFragment
 import com.example.portfolio.component_catalog.ComponentCatalogFragment.Companion.components
+import com.example.portfolio.component_catalog.components.EmailFragment
 import com.example.portfolio.component_catalog.components.NumberPickerFragment
 import com.example.portfolio.component_catalog.components.TextFragment
 import com.example.portfolio.databinding.ComponentCatalogBinding
@@ -65,6 +66,12 @@ class ComponentCatalogFragment : Fragment() {
                 AboutFragment.newInstance(AboutFragment.johnDoeProfile),
                 "'About Me' page of someone",
                 "Compose, Material"
+            ),
+            Component(
+                "Email",
+                EmailFragment.newInstance(),
+                "Button that emails dummyemail@gmail",
+                "Intent"
             )
         )
     }
