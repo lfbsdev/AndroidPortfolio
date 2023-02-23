@@ -94,6 +94,7 @@ class AboutFragment : Fragment() {
                         top = 16.dp
                     ),
                     verticalArrangement = Arrangement.spacedBy(12.dp),
+                    userScrollEnabled = false
                 ) {
                     items(profile.interestList.size) { index ->
                         InterestText(profile.interestList[index])
