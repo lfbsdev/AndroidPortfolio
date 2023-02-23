@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_component_catalog">
+
+    <fragment
+        android:id="@+id/nav_component_catalog"
+        android:name="com.example.portfolio.component_catalog.ComponentCatalogFragment"
+        android:label="@string/component_catalog_label"
+        tools:layout="@layout/component_catalog" >
+        <action
+            android:id="@+id/action_nav_component_catalog_to_action_settings"
+            app:destination="@id/action_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/number_guesser"
+        android:name="com.example.portfolio.number_guesser.NumberGuesserFragment"
+        android:label="@string/ng_title"
+        tools:layout="@layout/fragment_number_guesser" />
+
+    <fragment
+        android:id="@+id/about_me"
+        android:name="com.example.portfolio.about.AboutFragment"
+        android:label="@string/about_me_title"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/action_settings"
+        android:name="com.example.portfolio.SettingsFragment"
+        android:label="@string/action_settings"
+        tools:layout="@xml/root_preferences" />
+
+</navigation>

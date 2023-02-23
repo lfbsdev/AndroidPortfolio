@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Portfolio</string>
+    <string name="hello_blank_fragment">hello</string>
+    <string name="title_activity_main">Main Activity!</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="component_catalog_label">Component Catalog</string>
+    <string name="about_me">About me</string>
+    <string name="about_me_title">About Me</string>
+    <string name="interests">Interests</string>
+    <string name="number_is">Number is</string>
+    <string name="number_is_between">Number is between</string>
+    <string name="and">and</string>
+    <string name="ng_welcome_toast">A random number has been drawn. Can you guess it?</string>
+    <string name="ng_miss_toast">Miss!</string>
+    <string name="ng_hit_toast">Hit! You guessed with</string>
+    <string name="attempts">attempts</string>
+    <string name="ng_title">Number Guesser</string>
+    <string name="ng_number_between">Number is between 0 and 100</string>
+    <string name="ng_send">Run</string>
+    <string name="ng_try_again">Try Again</string>
+</resources>
