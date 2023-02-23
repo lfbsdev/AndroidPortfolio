@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
         val button = menu.findItem(R.id.action_settings)
         button.setOnMenuItemClickListener {
             val navController = findNavController(R.id.nav_host_fragment_content_main)
-            if (navController.currentDestination?.label == "Component Catalog") {
-                navController.navigate(R.id.action_nav_component_catalog_to_action_settings)
+            if (navController.currentDestination?.label != getString(R.string.action_settings)) {
+                navController.navigate(R.id.action_settings)
             }
             true
         }

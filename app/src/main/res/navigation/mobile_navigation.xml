@@ -10,9 +10,6 @@
         android:name="com.example.portfolio.component_catalog.ComponentCatalogFragment"
         android:label="@string/component_catalog_label"
         tools:layout="@layout/component_catalog" >
-        <action
-            android:id="@+id/action_nav_component_catalog_to_action_settings"
-            app:destination="@id/action_settings" />
     </fragment>
 
     <fragment
