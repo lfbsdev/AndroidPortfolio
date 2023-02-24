@@ -1,5 +1,7 @@
 package com.example.portfolio.about
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -56,6 +58,17 @@ class AboutFragment : Fragment() {
     }
 
     @Composable
+    private fun EmailIcon(email: String) {
+        IconButton(
+            onClick = { emailTo(email) }
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_baseline_email_24),
+                contentDescription = "email icon")
+        }
+    }
+
+    @Composable
     private fun AboutMe(profile: Profile) {
         Card(modifier = Modifier
             .padding(top = 32.dp, start = 32.dp, end = 32.dp)
@@ -68,10 +81,14 @@ class AboutFragment : Fragment() {
                 ProfilePicture(
                     imageID = profile.profilePictureID
                 )
-                Text(text = profile.name,
-                    modifier = Modifier.padding(vertical=8.dp),
-                    style = MaterialTheme.typography.titleLarge,
-                )
+                Row {
+                    Text(
+                        text = profile.name,
+                        modifier = Modifier.padding(vertical = 8.dp),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                    profile.email?.let { EmailIcon(email = it) }
+                }
                 Text(text = stringResource(R.string.about_me),
                     modifier = Modifier
                         .padding(vertical = 8.dp)
@@ -152,6 +169,14 @@ class AboutFragment : Fragment() {
         }
     }
 
+    private fun emailTo(email: String) {
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+        }
+        startActivity(emailIntent)
+    }
+
     companion object {
         val johnDoeProfile = Profile(
             R.drawable.ic_launcher_foreground,
@@ -167,7 +192,8 @@ class AboutFragment : Fragment() {
                 Interests.Books,
                 Interests.Sports,
                 Interests.Cinema
-            )
+            ),
+            null
         )
 
         val luisFernandoProfile = Profile(
@@ -183,7 +209,8 @@ class AboutFragment : Fragment() {
                 Interests.Travel,
                 Interests.Tech,
                 Interests.Gaming
-            )
+            ),
+            "luisbdos.santos@gmail.com"
         )
 
         const val KEY_PROFILE = "profile"
