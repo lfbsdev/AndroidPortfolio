@@ -15,6 +15,7 @@ import android.widget.Toast
 import com.example.portfolio.databinding.ActivityLoginBinding
 
 import com.example.portfolio.R
+import com.example.portfolio.data.model.LoggedInUser
 
 class LoginActivity : AppCompatActivity() {
 
@@ -98,13 +99,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUiWithUser(model: LoggedInUserView) {
+    private fun updateUiWithUser(model: LoggedInUser) {
         val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
         // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
-            "$welcome $displayName",
+            "$welcome",
             Toast.LENGTH_LONG
         ).show()
     }
