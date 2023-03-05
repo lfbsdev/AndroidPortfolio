@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.portfolio.about.AboutFragment
 import com.example.portfolio.component_catalog.ComponentCatalogFragment.Companion.components
 import com.example.portfolio.component_catalog.components.EmailFragment
+import com.example.portfolio.component_catalog.components.MyModalBottomSheetFragment
 import com.example.portfolio.component_catalog.components.NumberPickerFragment
 import com.example.portfolio.component_catalog.components.TextFragment
 import com.example.portfolio.databinding.ComponentCatalogBinding
@@ -72,6 +73,12 @@ class ComponentCatalogFragment : Fragment() {
                 EmailFragment.newInstance(),
                 "Button that emails dummyemail@gmail",
                 "Intent"
+            ),
+            Component(
+                "Modal Bottom Sheet",
+                MyModalBottomSheetFragment(),
+                "A menu that comes bottom-up.",
+                "Compose"
             )
         )
     }
