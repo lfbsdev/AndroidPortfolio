@@ -13,6 +13,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 
 import com.example.portfolio.R
 import com.example.portfolio.data.model.LoggedInUser
@@ -22,6 +24,7 @@ class LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,12 +38,12 @@ class LoginFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         val username = binding.username
         val password = binding.password
         val login = binding.login
         val loading = binding.loading
+
+        navController = view.findNavController()
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -105,13 +108,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUiWithUser(model: LoggedInUser) {
-        val welcome = getString(R.string.welcome)
-        // TODO : initiate successful logged in experience
-        Toast.makeText(
-            context,
-            "$welcome",
-            Toast.LENGTH_LONG
-        ).show()
+        navController.navigate(R.id.action_login_to_register)
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
