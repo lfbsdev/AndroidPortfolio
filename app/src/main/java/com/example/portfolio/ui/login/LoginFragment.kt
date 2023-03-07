@@ -31,6 +31,11 @@ class LoginFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         binding = FragmentLoginBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val username = binding.username
         val password = binding.password
@@ -97,7 +102,6 @@ class LoginFragment : Fragment() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }
-        return binding.root
     }
 
     private fun updateUiWithUser(model: LoggedInUser) {
