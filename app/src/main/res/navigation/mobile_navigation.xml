@@ -30,4 +30,10 @@
         android:label="@string/action_settings"
         tools:layout="@xml/root_preferences" />
 
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.portfolio.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
 </navigation>
