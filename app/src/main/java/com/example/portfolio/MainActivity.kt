@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.viewModels
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -15,17 +14,20 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.portfolio.about.Profile
 import com.example.portfolio.databinding.ActivityMainBinding
+import com.example.portfolio.ui.login.LoginViewModel
+import com.example.portfolio.ui.login.LoginViewModelFactory
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    val viewModel: MainActivityViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +49,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        val loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
+            .get(LoginViewModel::class.java)
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.mainActivityState.collect {
-                    updateNavHeader(it.currentProfile)
+                loginViewModel.loginResult.observe(this@MainActivity) {
+                    it.success?.profile?.let { it1 -> updateNavHeader(it1) }
                 }
             }
         }
