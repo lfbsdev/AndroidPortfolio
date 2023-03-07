@@ -16,5 +16,9 @@
             android:id="@+id/about_me"
             android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/about_me_title" />
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/ic_baseline_email_24"
+            android:title="Login" />
     </group>
 </menu>

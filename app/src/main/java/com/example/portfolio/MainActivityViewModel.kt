@@ -1,14 +1,12 @@
 package com.example.portfolio
 
 import androidx.lifecycle.ViewModel
-import com.example.portfolio.about.AboutFragment
-import com.example.portfolio.about.Profile
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 data class MainActivityState(
-    val currentProfile: Profile = AboutFragment.luisFernandoProfile
+    val dummy: Int = 0
 )
 
 class MainActivityViewModel : ViewModel() {
